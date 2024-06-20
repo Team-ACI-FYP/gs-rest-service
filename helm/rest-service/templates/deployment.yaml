@@ -2,7 +2,11 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Release.Name }}-deployment
-  labels: {{ .Values.labels.app }}
+  namespace: {{ .Values.namespace }}
+  labels: 
+    app.kubernetes.io/name: {{ .Values.labels.deployment }}
+    app.kubernetes.io/tier: {{ .Values.labels.tier }}
+    app.kubernetes.io/environment: {{ .Values.labels.environment }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
@@ -14,7 +18,7 @@ spec:
         app: {{ .Values.labels.app }}
     spec:
       containers:
-        - name: {{ .Chart.Name }}
+        - name: {{ .Values.container.name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
