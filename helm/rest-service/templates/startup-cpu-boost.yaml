@@ -15,9 +15,9 @@ spec:
       percentageIncrease:
         value: 50
   durationPolicy:
-    # fixedDuration:
-    #   unit: Seconds
-    #   value: 60
+    fixedDuration:
+      unit: Seconds
+      value: 240
     podCondition:
       type: Ready
       status: "True"
