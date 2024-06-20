@@ -17,7 +17,7 @@ spec:
   durationPolicy:
     fixedDuration:
       unit: Seconds
-      value: 240
+      value: 1000
     # podCondition:
     #   type: Ready
     #   status: "True"

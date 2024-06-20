@@ -14,7 +14,7 @@ image:
   pullPolicy: Always
 
 service:
-  type: ClusterIP
+  type: NodePort
   port: 8080
   targetPort: 8080
 
@@ -24,11 +24,11 @@ spring:
 
 resources:
   limits:
-    cpu: "1000m"
-    memory: "512Mi"
-  requests:
     cpu: "500m"
     memory: "256Mi"
+  requests:
+    cpu: "250m"
+    memory: "512Mi"
 
 labels:
   app: hello-world-app
