@@ -18,6 +18,6 @@ spec:
     fixedDuration:
       unit: Seconds
       value: 240
-    podCondition:
-      type: Ready
-      status: "True"
+    # podCondition:
+    #   type: Ready
+    #   status: "True"
