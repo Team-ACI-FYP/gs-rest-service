@@ -4,9 +4,9 @@ metadata:
   name: {{ .Release.Name }}-service
   namespace: {{ .Values.namespace }}
   labels:
-    environment: {{ .Values.labels.environment }}
-    deployment: {{ .Values.labels.deployment }}
-    service: {{ .Values.labels.service }}
+    app.kubernetes.io/tier: {{ .Values.labels.tier }}
+    app.kubernetes.io/environment: {{ .Values.labels.environment }}
+    app.kubernetes.io/deployment: {{ .Values.labels.deployment }}
 spec:
   type: {{ .Values.service.type }}
   ports:
