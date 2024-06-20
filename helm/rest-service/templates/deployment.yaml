@@ -3,20 +3,22 @@ kind: Deployment
 metadata:
   name: {{ .Release.Name }}-deployment
   namespace: {{ .Values.namespace }}
-  labels: 
-    app.kubernetes.io/name: {{ .Values.labels.deployment }}
+  labels:
     app.kubernetes.io/tier: {{ .Values.labels.tier }}
     app.kubernetes.io/environment: {{ .Values.labels.environment }}
-    app.kubernetes.io/deployment: {{ .Values.labels.deployment }}
+    app.kubernetes.io/deployment: {{ .Values.labels.app }}  # Adjusted to match app name
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ .Values.labels.app }}
+      app.kubernetes.io/name: {{ .Values.labels.app }}  # Match selector labels
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: {{ .Values.labels.app }}
+        app.kubernetes.io/name: {{ .Values.labels.app }}  # Define template labels
+        app.kubernetes.io/tier: {{ .Values.labels.tier }}
+        app.kubernetes.io/environment: {{ .Values.labels.environment }}
+        app.kubernetes.io/deployment: {{ .Values.labels.app }}  # Adjusted to match app name
     spec:
       containers:
         - name: {{ .Values.container.name }}
