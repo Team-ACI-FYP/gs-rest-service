@@ -1,0 +1,5 @@
+{
+    "yaml.schemas": {
+        "https://json.schemastore.org/helmfile.json": "file:///home/charindu-thisara/CodeBases/FYP/gs-rest-service/helm/rest-service/templates/deployment.yaml"
+    }
+}

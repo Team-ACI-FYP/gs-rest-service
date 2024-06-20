@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}-service
+  labels:
+    environment: {{ .Values.labels.environment }}
+    deployment: {{ .Values.labels.deployment }}
+    service: {{ .Values.labels.service }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: http
+  selector:
+    deployment: {{ .Values.labels.deployment }}
