@@ -13,4 +13,4 @@ spec:
     - port: {{ .Values.service.port }}
       targetPort: http
   selector:
-    app.kubernetes.io/name: {{ .Values.labels.app }}
+    app.kubernetes.io/deployment: {{ .Values.labels.deployment }}
