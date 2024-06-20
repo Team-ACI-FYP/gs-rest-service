@@ -7,6 +7,7 @@ metadata:
     app.kubernetes.io/name: {{ .Values.labels.deployment }}
     app.kubernetes.io/tier: {{ .Values.labels.tier }}
     app.kubernetes.io/environment: {{ .Values.labels.environment }}
+    app.kubernetes.io/deployment: {{ .Values.labels.deployment }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
@@ -15,7 +16,7 @@ spec:
   template:
     metadata:
       labels:
-        app: {{ .Values.labels.app }}
+        app.kubernetes.io/name: {{ .Values.labels.app }}
     spec:
       containers:
         - name: {{ .Values.container.name }}
