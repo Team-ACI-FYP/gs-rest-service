@@ -8,13 +8,13 @@ metadata:
     environment: {{ .Values.labels.environment }}
     deployment: {{ .Values.labels.deployment }}
 spec:
-  name: {{ .Values.labels.app }}
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
       app: {{ .Values.labels.app }}
   template:
     metadata:
+      name: {{ .Values.labels.app }}-pod
       labels:
         app: {{ .Values.labels.app }}
         tier: {{ .Values.labels.tier }}
