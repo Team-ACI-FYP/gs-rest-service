@@ -4,10 +4,8 @@ metadata:
   name: boost-001
   namespace: {{ .Values.namespace }}
 selector:
-  matchExpressions:
-  - key: app.kubernetes.io/name
-    operator: In
-    values: ["{{ .Values.labels.app }}"]
+  matchLabels:
+    app: {{ .Values.labels.app }}
 spec:
   resourcePolicy:
     containerPolicies:

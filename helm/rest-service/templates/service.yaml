@@ -4,13 +4,15 @@ metadata:
   name: {{ .Release.Name }}-service
   namespace: {{ .Values.namespace }}
   labels:
-    app.kubernetes.io/tier: {{ .Values.labels.tier }}
-    app.kubernetes.io/environment: {{ .Values.labels.environment }}
-    app.kubernetes.io/deployment: {{ .Values.labels.deployment }}
+    app: {{ .Values.labels.app }}
+    tier: {{ .Values.labels.tier }}
+    environment: {{ .Values.labels.environment }}
+    deployment: {{ .Values.labels.deployment }}
+    service: {{ .Values.labels.service }}
 spec:
   type: {{ .Values.service.type }}
   ports:
     - port: {{ .Values.service.port }}
       targetPort: {{ .Values.service.targetPort }}
   selector:
-    app.kubernetes.io/deployment: {{ .Values.labels.deployment }}
+    deployment: {{ .Values.labels.deployment }}
