@@ -9,9 +9,9 @@ selector:
 spec:
   resourcePolicy:
     containerPolicies:
-    - containerName: {{ .Values.container.name }}
-      percentageIncrease:
-        value: 50
+      - containerName: {{ .Values.container.name }}
+        percentageIncrease:
+          value: 50
   durationPolicy:
     fixedDuration:
       unit: Seconds
